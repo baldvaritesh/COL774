@@ -3,7 +3,7 @@ import numpy as np
 Utility calls for all the models and analysis
 '''
 
-def PreProcessFit(X,y):
+def PreProcessFit(X,y,model):
 	'''
 	Shape for X should be: [nsamples nfeatures]
 	Shape for y should be: [nsamples nlabels]
@@ -17,7 +17,8 @@ def PreProcessFit(X,y):
 		print('Shapes for input data not correctly aligned')
 		return (None, None)
 
-	X = np.c_[np.ones(shape=(len(y))), X]
+	if(model == 'regression'):
+		X = np.c_[np.ones(shape=(len(y))), X]
 	return (X, y)
 
 def PreProcessPredict(X, modelFeatures):

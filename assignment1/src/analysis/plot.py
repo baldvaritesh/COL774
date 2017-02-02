@@ -78,7 +78,15 @@ def Q3b(X, y, thetas):
   plt.plot((min(X.T[0]), max(X.T[0])), (yVal(min(X.T[0])), yVal(max(X.T[0]))), 'green')
   plt.show()
 
-def Q4b(X, y):
+def Q4(X, y, part, thetas = []):
+
+  def partC():
+    nonlocal X
+    plt.plot((min(X.T[0]), max(X.T[0])), (thetas[0] + thetas[1]*min(X.T[0]), thetas[0] + thetas[1]*max(X.T[0])), 'green')
+
+  def partE():
+    print('Hello')
+
   XA, XC = [[],[]], [[],[]]
   for i in range(0, len(y)):
     if(y[i][0] == 'Alaska'):
@@ -89,4 +97,12 @@ def Q4b(X, y):
       XC[1].append(X.T[1][i])
   plt.scatter(XA[0], XA[1], c=['blue'])
   plt.scatter(XC[0], XC[1], c=['red'])
+
+  if(part == 'c'):
+    partC()
+
+  if(part == 'e'):
+    partC()
+    partE()
+
   plt.show()
