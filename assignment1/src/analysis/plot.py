@@ -80,9 +80,13 @@ def Q3b(X, y, thetas):
 
 def Q4(X, y, part, thetas = []):
 
+  def yLinear(x):
+    nonlocal thetas
+    return (-thetas[0] - thetas[1][0] * x) / thetas[1][1]
+
   def partC():
     nonlocal X
-    plt.plot((min(X.T[0]), max(X.T[0])), (thetas[0] + thetas[1]*min(X.T[0]), thetas[0] + thetas[1]*max(X.T[0])), 'green')
+    plt.plot((min(X.T[0]), max(X.T[0])), (yLinear(min(X.T[0])), yLinear(max(X.T[0]))), 'green')
 
   def partE():
     print('Hello')
