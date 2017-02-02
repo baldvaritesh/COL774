@@ -77,3 +77,16 @@ def Q3b(X, y, thetas):
   plt.scatter(XNegative[0], XNegative[1], c=['red'])
   plt.plot((min(X.T[0]), max(X.T[0])), (yVal(min(X.T[0])), yVal(max(X.T[0]))), 'green')
   plt.show()
+
+def Q4b(X, y):
+  XA, XC = [[],[]], [[],[]]
+  for i in xrange(0, len(y)):
+    if(y[i][0] == 'Alaska'):
+      XA[0].append(X.T[0][i])
+      XA[1].append(X.T[1][i])
+    else:
+      XC[0].append(X.T[0][i])
+      XC[1].append(X.T[1][i])
+  plt.scatter(XA[0], XA[1], c=['blue'])
+  plt.scatter(XC[0], XC[1], c=['red'])
+  plt.show()
