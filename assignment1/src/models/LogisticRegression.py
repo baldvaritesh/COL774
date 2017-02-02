@@ -80,7 +80,7 @@ class LogisticRegression:
 				return True
 			return False
 
-		(X,y) = PreProcessFit(X,y)
+		(X,y) = PreProcessFit(X,y,model='regression')
 		self.M = len(X)
 		self.N = len(X.T)
 		'''
