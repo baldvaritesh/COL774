@@ -80,7 +80,7 @@ def Q3b(X, y, thetas):
 
 def Q4b(X, y):
   XA, XC = [[],[]], [[],[]]
-  for i in xrange(0, len(y)):
+  for i in range(0, len(y)):
     if(y[i][0] == 'Alaska'):
       XA[0].append(X.T[0][i])
       XA[1].append(X.T[1][i])
