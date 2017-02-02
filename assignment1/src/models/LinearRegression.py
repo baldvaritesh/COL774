@@ -1,11 +1,3 @@
-'''
-If you run any module from the interpreter be sure to add the following
-two lines to allow relative imports
-'''
-import sys
-if("/home/ritesh/Desktop/IPython/ml/assignment1" not in sys.path):
-  sys.path.insert(0, "/home/ritesh/Desktop/IPython/ml/assignment1")
-
 import numpy as np
 from src.models.common import *
 
@@ -19,7 +11,7 @@ class LinearRegression():
     Declare the empty parameter set on initialisation
     1. optimized: Optimized takes care for the Barzilai-Borwein method of update for learning rate
     2. storeCostFunction: Takes care for plotting the cost function
-    3. returnValue: for doing the parts of assignment 
+    3. returnValue: for doing the parts of assignment
     '''
     self.Thetas = []
     self.PreviousThetas = []
@@ -76,7 +68,7 @@ class LinearRegression():
 
       if (self.StoreCostFunction == True) and (count % 10000 == 0):
         self.returnValue.append([count, self.Thetas[0], self.Thetas[1], _CostFunction(self.Thetas)])
-      
+
       _Update(self)
 
     if(self.StoreCostFunction == True):

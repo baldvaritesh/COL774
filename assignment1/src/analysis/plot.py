@@ -1,11 +1,3 @@
-'''
-If you run any module from the interpreter be sure to add the following
-two lines to allow relative imports
-'''
-import sys
-if("/home/ritesh/Desktop/IPython/ml/assignment1" not in sys.path):
-  sys.path.insert(0, "/home/ritesh/Desktop/IPython/ml/assignment1")
-
 import numpy as np
 from pylab import meshgrid
 from mpl_toolkits.mplot3d import Axes3D
@@ -40,7 +32,7 @@ def Q1b(X,y,thetas):
 def Q1c(X, y, answer):
   '''
   Add scatter plots of actual values to show progress
-  
+
   Snippet below is taken from http://glowingpython.blogspot.in/2012/01/how-to-plot-two-variable-functions-with.html
   '''
   (T0, T1, J) = PlotProcess(X, y)
@@ -58,7 +50,7 @@ def Q1c(X, y, answer):
 
 def Q1d(X, y):
   '''
-  Add scatter plots of actual points to show progress 
+  Add scatter plots of actual points to show progress
   '''
   (T0, T1, J) = PlotProcess(X, y)
   plt.contour(T0, T1, J, np.arange(0, 50, 3), colors='k', linestyle='solid')

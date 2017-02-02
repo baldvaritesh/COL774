@@ -1,11 +1,3 @@
-'''
-If you run any module from the interpreter be sure to add the following
-two lines to allow relative imports
-'''
-import sys
-if("/home/ritesh/Desktop/IPython/ml/assignment1" not in sys.path):
-  sys.path.insert(0, "/home/ritesh/Desktop/IPython/ml/assignment1")
-
 import numpy as np
 
 def SingleFeatureReader(file, functionType):
@@ -23,7 +15,7 @@ def MultipleFeatureReader(file, functionType):
   return s
 
 FileNames = {
-  'q1' : ["../../data/q1x.dat", "../../data/q1y.dat"], 
+  'q1' : ["../../data/q1x.dat", "../../data/q1y.dat"],
   'q2' : ["../../data/q3x.dat", "../../data/q3y.dat"],
   'q3' : ["../../data/q2x.dat", "../../data/q2y.dat"],
   'q4' : ["../../data/q4x.dat", "../../data/q4y.dat"],

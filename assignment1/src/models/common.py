@@ -1,12 +1,4 @@
-'''
-If you run any module from the interpreter be sure to add the following
-two lines to allow relative imports
-'''
-import sys
-if("/home/ritesh/Desktop/IPython/ml/assignment1" not in sys.path):
-  sys.path.insert(0, "/home/ritesh/Desktop/IPython/ml/assignment1")
-
-import numpy as np 
+import numpy as np
 '''
 Utility calls for all the models and analysis
 '''

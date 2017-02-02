@@ -1,11 +1,3 @@
-'''
-If you run any module from the interpreter be sure to add the following
-two lines to allow relative imports
-'''
-import sys
-if("/home/ritesh/Desktop/IPython/ml/assignment1" not in sys.path):
-  sys.path.insert(0, "/home/ritesh/Desktop/IPython/ml/assignment1")
-
 import numpy as np
 from src.models.common import *
 
@@ -17,7 +9,7 @@ class WeightedLinearRegression():
   def __init__(self, bandwidth = 1.0, eta = 0.00001, intervals = []):
     '''
     Similar like simple regression
-    1. Parameter for bandwidth added 
+    1. Parameter for bandwidth added
     2. Parameter for intervals on which the model would be trained, dimension: R^(n+1)
     '''
     self.PreviousThetas = []
@@ -57,4 +49,4 @@ class WeightedLinearRegression():
     return self.returnValue
 
   def Predict(X):
-    
+
