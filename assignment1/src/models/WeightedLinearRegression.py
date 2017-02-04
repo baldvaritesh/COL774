@@ -28,7 +28,7 @@ class WeightedLinearRegression():
     intervalPoints = []
     for i in range(0, self.M):
       for j in range(0, len(interval)):
-        if(X[i][j] >= interval[j]['start'] and X[i][j] <= interval[j]['end']):
+        if(X[i][j] >= interval[j][0] and X[i][j] <= interval[j][1]):
           intervalPoints.append((X[i], i))
 
     centroid = np.zeros()

@@ -8,3 +8,4 @@ from src.models.GaussianDiscriminant import GaussianDiscriminant
 model = GaussianDiscriminant(sameCov=False)
 model.Fit(X, y)
 Thetas = model.DecisionBoundary()
+Q4(X, y, 'e', Thetas)

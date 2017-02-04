@@ -82,17 +82,32 @@ def Q4(X, y, part, thetas = []):
 
   def yLinear(x):
     nonlocal thetas
+    '''
+    Form of thetas: Constant, 1D array
+    '''
     return (-thetas[0] - thetas[1][0] * x) / thetas[1][1]
 
-  def yQuadratic(x):
+  def yQuadratic(x, y):
+    '''
+    Form of thetas: Constant, 1D array, 2D array
+    Just solving a quadratic equation
+    '''
     nonlocal thetas
+    alpha = thetas[2][1][1]
+    beta = 2 * thetas[2][0][1] * x + thetas[1][1]
+    gamma = thetas[2][0][0] * (x ** 2) + thetas[1][0] * x + thetas[0]
+    return alpha * (y ** 2) + beta * (y) + gamma
+
 
   def partC():
     nonlocal X
     plt.plot((min(X.T[0]), max(X.T[0])), (yLinear(min(X.T[0])), yLinear(max(X.T[0]))), 'green')
 
   def partE():
-    print('Hello')
+    x = np.linspace(-3, 3, 300)
+    y = np.linspace(-4, 4, 400)
+    x, y = np.meshgrid(x, y)
+    plt.contour(x, y, yQuadratic(x, y), [0], colors='k')
 
   XA, XC = [[],[]], [[],[]]
   for i in range(0, len(y)):
