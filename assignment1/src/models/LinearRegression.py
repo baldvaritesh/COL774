@@ -6,7 +6,7 @@ class LinearRegression():
   Creates a LinearRegression object
   '''
 
-  def __init__(self, optimized = False, storeCostFunction = False, eta = 0.00001):
+  def __init__(self, count=10000, optimized = False, storeCostFunction = False, eta = 0.00001):
     '''
     Declare the empty parameter set on initialisation
     1. optimized: Optimized takes care for the Barzilai-Borwein method of update for learning rate
@@ -19,6 +19,7 @@ class LinearRegression():
     self.StoreCostFunction = storeCostFunction
     self.returnValue = None
     self.Eta = eta
+    self.Count = count
 
   def Fit(self, X, y):
 
@@ -45,7 +46,7 @@ class LinearRegression():
     def _Converged(self):
       if (len(self.PreviousThetas) == 0):
         return False
-      if (abs(_CostFunction(self.Thetas) - _CostFunction(self.PreviousThetas)) < 1e-12):
+      if (abs(_CostFunction(self.Thetas) - _CostFunction(self.PreviousThetas)) < 1e-3):
         return True
       return False
 
@@ -66,13 +67,13 @@ class LinearRegression():
     while (not _Converged(self)):
       count += 1
 
-      if (self.StoreCostFunction == True) and (count % 10000 == 0):
-        self.returnValue.append([count, self.Thetas[0], self.Thetas[1], _CostFunction(self.Thetas)])
+      if (self.StoreCostFunction == True) and (count % self.Count == 0):
+        self.returnValue.append([count, self.Thetas[0].copy(), self.Thetas[1].copy(), _CostFunction(self.Thetas)])
 
       _Update(self)
 
     if(self.StoreCostFunction == True):
-      self.returnValue.append([count, self.Thetas[0], self.Thetas[1], _CostFunction(self.Thetas)])
+      self.returnValue.append([count, self.Thetas[0].copy(), self.Thetas[1].copy(), _CostFunction(self.Thetas)])
 
     return self.returnValue
 

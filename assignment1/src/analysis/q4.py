@@ -5,7 +5,6 @@ from src.models.GaussianDiscriminant import GaussianDiscriminant
 
 [(X, restoreData),y] = Reader('q4', [float, str], [1,0])
 
-model = GaussianDiscriminant(sameCov=False)
+model = GaussianDiscriminant(sameCov=True)
 model.Fit(X, y)
-Thetas = model.DecisionBoundary()
-Q4(X, y, 'e', Thetas)
+Q4(X,y,'b')
