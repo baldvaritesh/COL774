@@ -1,7 +1,7 @@
 import numpy as np
 from src.models.common import *
 
-class LogisticRegression:
+class LogisticRegression():
 	'''
 	Creates a Logistic Regression Object
 	'''

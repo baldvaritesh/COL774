@@ -56,7 +56,24 @@ def Q1d(X, y):
   plt.contour(T0, T1, J, np.arange(0, 50, 3), colors='k', linestyle='solid')
   plt.show()
 
-def Q3b(X, y, thetas):
+
+def Q2(X, y, part, thetas, intervals = []):
+  plt.clf()
+
+  if(part == 'a'):
+    plt.scatter(X, y, c=['blue'])
+    plt.plot((min(X), max(X)), (thetas[0] + thetas[1]*min(X), thetas[0] + thetas[1]*max(X)), 'red')
+
+  else:
+    plt.scatter(X, y, c=['blue'])
+    i = 0
+    for interval in intervals:
+      plt.plot((interval[0][0], interval[0][1]), (thetas[i][0] + thetas[i][1]*interval[0][0], thetas[i][0] + thetas[i][1]*interval[0][1]), 'red')
+      i += 1
+
+  plt.show()
+
+def Q3(X, y, thetas):
 
   def yVal(x):
     '''

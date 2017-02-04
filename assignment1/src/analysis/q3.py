@@ -8,4 +8,4 @@ from src.models.LogisticRegression import LogisticRegression
 model = LogisticRegression()
 answer = model.Fit(X, y)
 
-Q3b(X, y, model.Thetas)
+Q3(X, y, model.Thetas)
