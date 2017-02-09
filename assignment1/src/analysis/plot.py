@@ -76,7 +76,7 @@ def Q1d(X, y, answer, part):
   plt.legend(handles=[e, red_patch])
   plt.savefig('../outputs/Q1/part'+part+'.png')
 
-def Q2(X, y, part, thetas, intervals = []):
+def Q2(X, y, part, answer):
   plt.clf()
   plt.scatter(X, y, c=['blue'])
   plt.xlabel('X')
@@ -85,17 +85,19 @@ def Q2(X, y, part, thetas, intervals = []):
   legendHandles = [blue_patch]
 
   if(part == 'a'):
-    c,= plt.plot((min(X), max(X)), (thetas[0] + thetas[1]*min(X), thetas[0] + thetas[1]*max(X)), 'red', label='Unweighted')
+    c,= plt.plot((min(X), max(X)), (answer[0] + answer[1]*min(X), answer[0] + answer[1]*max(X)), 'red', label='Unweighted')
     legendHandles.append(c)
 
   else:
     plt.scatter(X, y, c=['blue'])
     i = 0
-    for interval in intervals:
-      c,= plt.plot((interval[0][0], interval[0][1]), (thetas[i][0] + thetas[i][1]*interval[0][0], thetas[i][0] + thetas[i][1]*interval[0][1]), 'red', label='Weighted')
-      if(i == 0):
-        legendHandles.append(c)
-      i += 1
+    xValues = []
+    yValues = []
+    for i in range(len(answer)):
+      xValues.append(answer[i][0])
+      yValues.append(answer[i][1][0] + answer[i][1][1] * answer[i][0])
+    c ,= plt.plot(xValues, yValues, 'red', label='Weighted')
+    legendHandles.append(c)
   plt.legend(handles=legendHandles)
   plt.savefig('../outputs/Q2/part' + part + '.png')
 
