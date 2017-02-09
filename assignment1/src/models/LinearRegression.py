@@ -69,7 +69,8 @@ class LinearRegression():
 
       if(abs(_CostFunction(self.Thetas)[0][0]) == np.inf):
         print('Gradient Descent diverged. Check the learning rate and the convergence condition')
-        return None
+        return self.returnValue
+        # return None
 
       if (self.StoreCostFunction == True) and (count % self.Count == 0):
         self.returnValue.append([count, self.Thetas[0].copy(), self.Thetas[1].copy(), _CostFunction(self.Thetas)])

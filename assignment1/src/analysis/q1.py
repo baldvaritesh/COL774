@@ -5,7 +5,5 @@ from src.models.LinearRegression import LinearRegression
 
 [(X, restoreData),y] = Reader('q1', [float, float], [0,0])
 
-model = LinearRegression(count=1, storeCostFunction=True, eta=2.1)
+model = LinearRegression(count=1, storeCostFunction=True, eta=0.1)
 answer = np.array(model.Fit(X, y))
-print(model.Thetas)
-Q1d(X, y, answer, 'e5')
